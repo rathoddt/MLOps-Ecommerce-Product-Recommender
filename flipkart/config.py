@@ -1,7 +1,8 @@
 import os
 from dotenv import load_dotenv
+# huggingface api keys are automatically loaded from .env file with call to load_dotenv() function. No need to set them explicitly in the code.
+load_dotenv() 
 
-load_dotenv()
 
 class Config:
     ASTRA_DB_API_ENDPOINT = os.getenv("ASTRA_DB_API_ENDPOINT")

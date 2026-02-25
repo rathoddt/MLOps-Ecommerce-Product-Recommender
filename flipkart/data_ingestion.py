@@ -9,7 +9,7 @@ class DataIngestor:
 
         self.vstore = AstraDBVectorStore(
             embedding=self.embedding,
-            collection_name="flipkart_database",
+            collection_name="flipkart_db",
             api_endpoint=Config.ASTRA_DB_API_ENDPOINT,
             token=Config.ASTRA_DB_APPLICATION_TOKEN,
             namespace=Config.ASTRA_DB_KEYSPACE
@@ -22,6 +22,11 @@ class DataIngestor:
         docs = DataConverter("data/flipkart_product_review.csv").convert()
 
         self.vstore.add_documents(docs)
+        print(f"Added {len(docs)} documents to AstraDB Vector Store.")
+        
 
         return self.vstore
 
+# if __name__ == "__main__":
+#     ingestor = DataIngestor()
+#     ingestor.ingest(load_existing=False)
