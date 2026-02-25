@@ -1,3 +1,4 @@
 .env
 venv/
-FLIPKART_RECOMMENDER.egg-info/
+recenv/
+Ecommerce_Product_Recommender.egg-info/
